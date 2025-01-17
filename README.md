@@ -1,4 +1,4 @@
-#SAUCEDEMO README
+# SAUCEDEMO README
 
 Hello and welcome to my Sauce Demo README
 
@@ -20,9 +20,9 @@ git clone https://github.com/Dash1704/Sauce-Demo.git
 
 ```
 
-- Navigate to the project directory:
+- Navigate to the project directory (replace your-folder with your applicable path):
 ```
-cd Sauce-Demo
+cd your-folder/your-folder/Sauce-Demo
 ```
 
 - Install dependencies:
