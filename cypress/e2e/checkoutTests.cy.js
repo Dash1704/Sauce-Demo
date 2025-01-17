@@ -6,10 +6,10 @@ describe('The checkout process tests', () => {
     cy.get('#login-button').click()
     cy.get('.inventory_item').first().find('button').click();
     cy.get('.shopping_cart_badge').click()
+    cy.get('[data-test="checkout"]').click()
   })
 
   it('should checkout successfully', () => {
-    cy.get('[data-test="checkout"]').click()
     cy.url().should('include', '/checkout-step-one.html');
     cy.get('#first-name').type('Dash')
     cy.get('#last-name').type('Boyles')
@@ -27,7 +27,6 @@ describe('The checkout process tests', () => {
   })
 
   it('should not allow you to complete checkout if postcode is left blank', () => {
-    cy.get('[data-test="checkout"]').click()
     cy.get('#first-name').type('Dash')
     cy.get('#last-name').type('Boyles')
     cy.get('[data-test="continue"]').click()
@@ -35,7 +34,6 @@ describe('The checkout process tests', () => {
   })
 
   it('should not allow you to complete checkout if first name is left blank', () => {
-    cy.get('[data-test="checkout"]').click()
     cy.get('#last-name').type('Boyles')
     cy.get('#postal-code').type('BR7 6JP')
     cy.get('[data-test="continue"]').click()
@@ -43,7 +41,6 @@ describe('The checkout process tests', () => {
   })
 
   it('should not allow you to complete checkout if last name is left blank', () => {
-    cy.get('[data-test="checkout"]').click()
     cy.get('#first-name').type('Dash')
     cy.get('#postal-code').type('BR7 6JP')
     cy.get('[data-test="continue"]').click()
@@ -51,7 +48,6 @@ describe('The checkout process tests', () => {
   })
 
   it('should allow you to correct an error', () => {
-    cy.get('[data-test="checkout"]').click()
     cy.get('#first-name').type('Dash')
     cy.get('#postal-code').type('BR7 6JP')
     cy.get('[data-test="continue"]').click()
