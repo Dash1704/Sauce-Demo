@@ -31,7 +31,7 @@ cd your-folder/your-folder/Sauce-Demo
 npm install
 ```
 
-To run the commands with the Cypress Test Suite run:
+To run the tests with the Cypress Test Suite run:
 
 ```
 npx cypress open
