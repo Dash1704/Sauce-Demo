@@ -19,9 +19,16 @@ describe('Add to basket Tests', () => {
     cy.get('.inventory_item').last().find('button').click();
     cy.get('.shopping_cart_badge').should('contain', '2');
 
-    cy.get('.inventory_item_name').contains('Sauce Labs Fleece Jacket')
+    cy.get('.inventory_item').contains('Sauce Labs Fleece Jacket')
     .parents('.inventory_item')
     .find('[data-test="add-to-cart-sauce-labs-fleece-jacket"]').click()
     cy.get('.shopping_cart_badge').should('contain', '3');
+  })
+
+  it('should show an item clicked in the checkout page', () => {
+    cy.get('.inventory_item').first().find('button').click();
+    cy.get('.shopping_cart_badge').click()
+    cy.url().should('include', '/cart.html')
+    cy.get('.cart_item').should('exist');
   })
 })
