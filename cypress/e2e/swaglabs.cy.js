@@ -34,3 +34,18 @@ describe('Login Tests', () => {
     cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service')
   })
 })
+
+describe('Add to basket Tests', () => {
+  beforeEach(() => {
+    cy.visit('https://saucedemo.com')
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click()
+  })
+
+  it('should have nothing in basket originally', () => {
+    cy.get('[data-test="shopping-cart-link"]').click()
+    cy.url().should('include', '/cart.html')
+    cy.get('.cart_item').should('not.exist');
+  })
+})
