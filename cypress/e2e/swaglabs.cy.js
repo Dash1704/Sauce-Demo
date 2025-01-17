@@ -27,7 +27,7 @@ describe('Login Tests', () => {
 
   it('should show an error for when a wrong password is used', () => {
     cy.get('#user-name').type('standard_user');
-    cy.get('#password').type('hello sunshine');
+    cy.get('#password').type('HelloSunshine');
 
     cy.get('#login-button').click()
 
