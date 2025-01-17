@@ -31,4 +31,21 @@ describe('Add to basket Tests', () => {
     cy.url().should('include', '/cart.html')
     cy.get('.cart_item').should('exist');
   })
+
+  it('should show multiple items in the checkout page', () => {
+    cy.get('.inventory_item').first().find('button').click();
+    cy.get('.inventory_item').last().find('button').click();
+    cy.get('.shopping_cart_badge').click()
+    cy.url().should('include', '/cart.html')
+    cy.get('.cart_list').find('.cart_item').should('have.length', 2);
+  })
+
+  it('should remove an item from the checkout page successfully', () => {
+    cy.get('.inventory_item').first().find('button').click();
+    cy.get('.inventory_item').last().find('button').click();
+    cy.get('.shopping_cart_badge').click()
+    cy.get('.cart_item').first().find('button').click()
+    cy.get('.cart_list').find('.cart_item').should('have.length', 1)
+  })
 })
+
