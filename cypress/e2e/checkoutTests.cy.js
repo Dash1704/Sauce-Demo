@@ -9,17 +9,20 @@ describe('The checkout process tests', () => {
   })
 
   it('should checkout successfully', () => {
-    //click checkout button
-    //assert url inclusion
+    cy.get('[data-test="checkout"]').click()
+    cy.url().should('include', '/checkout-step-one.html');
+    cy.get('#first-name').type('Dash')
+    cy.get('#last-name').type('Dash')
+    cy.get('#postal-code').type('BR7 6JP')
+    cy.get('[data-test="continue"]').click()
 
-    //enter details
-    //click contune
+    cy.url().should('include', '/checkout-step-two.html')
+    cy.get('.summary_info').should('contain', 'Payment Information')
+    cy.get('.summary_info').should('contain', 'Free Pony Express Delivery!')
+    cy.get('.summary_info').should('contain', 'Price Total')
 
-    //page includes overview
-    //page includes price total
-
-    //click finish
-    //see thankyou message
-    //basket icon has zero numbers in it
+    cy.get('[data-test="finish"]').click()
+    cy.get('[data-test="checkout-complete-container"]').should('contain', 'Thank you for your order!')
+    cy.get('[data-test="shopping-cart-link"]').should('be.empty');
   })
 })
