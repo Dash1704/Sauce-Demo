@@ -4,8 +4,8 @@ describe('The checkout process tests', () => {
     cy.get('[data-test="username"]').type('standard_user');
     cy.get('[data-test="password"]').type('secret_sauce');
     cy.get('[data-test="login-button"]').click()
-    cy.get('.inventory_item').first().find('button').click();
-    cy.get('.shopping_cart_badge').click()
+    cy.get('[data-test="inventory-item"]').first().find('button').click();
+    cy.get('[data-test="shopping-cart-badge"]').click()
     cy.get('[data-test="checkout"]').click()
   })
 
@@ -17,9 +17,9 @@ describe('The checkout process tests', () => {
     cy.get('[data-test="continue"]').click()
 
     cy.url().should('include', '/checkout-step-two.html')
-    cy.get('.summary_info').should('contain', 'Payment Information')
-    cy.get('.summary_info').should('contain', 'Free Pony Express Delivery!')
-    cy.get('.summary_info').should('contain', 'Price Total')
+    cy.get('[data-test="payment-info-label"]').should('contain', 'Payment Information')
+    cy.get('[data-test="shipping-info-value"]').should('contain', 'Free Pony Express Delivery!')
+    cy.get('[data-test="total-info-label"]').should('contain', 'Price Total')
 
     cy.get('[data-test="finish"]').click()
     cy.get('[data-test="checkout-complete-container"]').should('contain', 'Thank you for your order!')
