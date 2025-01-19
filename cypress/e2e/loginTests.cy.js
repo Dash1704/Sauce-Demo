@@ -33,4 +33,16 @@ describe('Login Tests', () => {
 
     cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service')
   })
+
+  it('should not be able to login after the user has signed out', () => {
+    cy.get('[data-test="username"]').type('standard_user');
+    cy.get('[data-test="password"]').type('secret_sauce');
+
+    cy.get('[data-test="login-button"]').click()
+
+    cy.get('#react-burger-menu-btn').click()
+    cy.get('[data-test="logout-sidebar-link"]').click()
+    cy.get('[data-test="login-button"]').click()
+    cy.get('[data-test="error"]').should('contain', 'Epic sadface: Username is required')
+  })
 })

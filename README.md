@@ -37,13 +37,14 @@ To run the tests with the Cypress Test Suite run:
 npx cypress open
 ```
 
-Once you have done so a Cypress interface will pop open and follow the following steps (See video below for clarification):
+Once you have done so a Cypress interface will pop open and follow the following steps:
 
 - E2E Testing
 - Chrome (or other preferred browser), and Start E2E testing in Chrome
 - Click Specs folder in left hand column
 - Choose any of the three testing specs
 - Tests should start running automatically
+
 
 
 
