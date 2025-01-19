@@ -45,6 +45,23 @@ Once you have done so a Cypress interface will pop open and follow the following
 - Choose any of the three testing specs
 - Tests should start running automatically
 
+The tests are in three different specs: Login Tests, Add to Basket Tests and Checkout Tests so that they can be easily located when maintenence and updates are required. This structure also simplifies de-bugging by isolating the tests for specific features, making it easy to identify and resolve issues.
+
+
+### Test reasons:
+I have tested the following three features:
+
+LOGIN/LOG OUT
+This is an important feature that focuses on validating the login functionality, including successful and failed attempts and edge cases.
+
+SHOPPING FEATURE
+A key part of an e-commerce platform is to be able to freely shop around without any unexpected errors. This ensures a good user experience and if there are any errors it will make the user put off from using the site and would potentially make them believe it is a scam website.
+
+COMPLETE PURCHASE
+Due to the obvious business model being that the user is paying for items, if they are unable to complate sales then it makes the business redundant, therefore ensuring that the payments are able to be completed is paramount to the website.
+
+
+
 
 
 
